@@ -39,7 +39,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
  
     def GoPlot(self):
         while self.ser.in_waiting > 0:    
-            print(self.ser.read())
+#            print(self.ser.read())
+            print(self.ser.readline())
 #        self.graphicsView.plot(L)
             
     def GoQuit(self):
@@ -66,7 +67,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.sendString = self.textEdit.toPlainText()
         print(self.sendString)
         self.ser.write(str.encode(self.sendString))
-
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
